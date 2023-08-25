@@ -1,0 +1,130 @@
+<!DOCTYPE html> 
+<html lang-"en"> 
+  <head><p>Bootstrap and JS/jQuery Worksheet<p>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style3.css">
+  </head>
+
+    <body>
+      <h2><u>Week 0 Class Work</u></h2>
+
+      <div id="container">
+      <div class="red"></div> 
+      <div class="blue"></div>
+      <div class="green"></div>
+      </div>
+      
+      <h3><u>Change Buttons</u></h3>
+
+    <div id="change">
+      <button class="btn-1">Change Box 1</button>
+      <button class="btn-2">Change Box 2</button>
+      <button class="btn-3">Change Box 3</button>
+      <button class="btn-all">Change All</button>
+  </div>
+
+      <h5><u>Hide Buttons</u></h5>
+      
+      <div id="hide">
+      <button class="hideone">Hide Box 1</button>
+      <button class="hidetwo">Hide Box 2</button>
+      <button class="hidethree">Hide Box 3</button>
+      <button class="hideall">Hide All</button>
+      </div>
+      <br>
+
+<div id="revamp">
+      <button class="reset">Reset Colors</button>
+      <button class="showall">Show All</button>
+</div>
+
+  <script> function getRandomColor() {
+  const letters = '0123456789ABCDEF';
+  let color = '#';
+  for (let i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
+
+const originalColors = {
+  red: {
+    backgroundColor: '#ff0000',
+    borderColor: '#000000'
+  },
+  blue: {
+    backgroundColor: '#0000ff',
+    borderColor: '#ffff1a'
+  },
+  green: {
+    backgroundColor: '#1aff1a',
+    borderColor: '#ff33ff'
+  }
+};
+
+document.querySelector('.btn-1').addEventListener('click', () => {
+  const box1 = document.querySelector('.red');
+  box1.style.backgroundColor = getRandomColor();
+  box1.style.borderColor = getRandomColor();
+});
+
+document.querySelector('.btn-2').addEventListener('click', () => {
+  const box2 = document.querySelector('.blue');
+  box2.style.backgroundColor = getRandomColor();
+  box2.style.borderColor = getRandomColor();
+});
+
+document.querySelector('.btn-3').addEventListener('click', () => {
+  const box3 = document.querySelector('.green');
+  box3.style.backgroundColor = getRandomColor();
+  box3.style.borderColor = getRandomColor();
+});
+
+document.querySelector('.btn-all').addEventListener('click', () => {
+  document.querySelectorAll('.red, .blue, .green').forEach(box => {
+    box.style.backgroundColor = getRandomColor();
+    box.style.borderColor = getRandomColor();
+  });
+});
+
+document.querySelector('.hideone').addEventListener('click', () => {
+  document.querySelector('.red').style.visibility = 'hidden';
+});
+
+document.querySelector('.hidetwo').addEventListener('click', () => {
+  document.querySelector('.blue').style.visibility = 'hidden';
+});
+
+document.querySelector('.hidethree').addEventListener('click', () => {
+  document.querySelector('.green').style.visibility = 'hidden';
+});
+
+document.querySelector('.hideall').addEventListener('click', () => {
+  document.querySelectorAll('.red, .blue, .green').forEach(box => {
+    box.style.visibility = 'hidden';
+  });
+});
+
+document.querySelector('.reset').addEventListener('click', () => {
+  const box1 = document.querySelector('.red');
+  const box2 = document.querySelector('.blue');
+  const box3 = document.querySelector('.green');
+  
+  box1.style.backgroundColor = originalColors.red.backgroundColor;
+  box1.style.borderColor = originalColors.red.borderColor;
+  
+  box2.style.backgroundColor = originalColors.blue.backgroundColor;
+  box2.style.borderColor = originalColors.blue.borderColor;
+  
+  box3.style.backgroundColor = originalColors.green.backgroundColor;
+  box3.style.borderColor = originalColors.green.borderColor;
+});
+
+document.querySelector('.showall').addEventListener('click', () => {
+  document.querySelectorAll('.red, .blue, .green').forEach(box => {
+    box.style.visibility = 'visible';
+  });
+});
+</script>
+    </body>
+    </html>
